@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import ru.otus.model.Question;
-import ru.otus.parser.IParser;
+import ru.otus.parser.Parser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +15,10 @@ import static java.util.stream.Collectors.toMap;
 @Service
 public class QuestionDao {
 
-    private final IParser<Question> parser;
+    private final Parser<Question> parser;
     private final String filename;
 
-    public QuestionDao(@Qualifier("questionParser") IParser<Question> parser, @Value("${question}") String filename) {
+    public QuestionDao(@Qualifier("questionParserImpl") Parser<Question> parser, @Value("${question}") String filename) {
         this.parser = parser;
         this.filename = filename;
     }

@@ -3,7 +3,7 @@ package ru.otus.dao;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.otus.model.Answer;
-import ru.otus.parser.IParser;
+import ru.otus.parser.Parser;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -18,7 +18,7 @@ import static org.mockito.Mockito.*;
 
 public class AnswerDaoTest {
 
-    IParser parser = mock(IParser.class);
+    Parser parser = mock(Parser.class);
     String filename;
 
     @Test

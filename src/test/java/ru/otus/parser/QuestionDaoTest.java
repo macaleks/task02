@@ -12,7 +12,7 @@ public class QuestionDaoTest {
     @Test
     public void test() {
         List<Question> result = new ArrayList<>();
-        QuestionParser parser = new QuestionParser();
+        QuestionParserImpl parser = new QuestionParserImpl();
         parser.parseCsv("csv/questions.csv", result::add);
 
         List<Question> expected = new ArrayList<>();

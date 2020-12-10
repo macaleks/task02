@@ -12,7 +12,7 @@ public class AnswerParserTest {
     @Test
     public void test() {
         List<Answer> result = new ArrayList<>();
-        AnswerParser parser = new AnswerParser();
+        AnswerParserImpl parser = new AnswerParserImpl();
         parser.parseCsv("csv/answers.csv", result::add);
 
         List<Answer> expected = new ArrayList<>();

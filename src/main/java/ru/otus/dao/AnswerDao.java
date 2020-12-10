@@ -2,10 +2,9 @@ package ru.otus.dao;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import ru.otus.model.Answer;
-import ru.otus.parser.IParser;
+import ru.otus.parser.Parser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +15,10 @@ import static java.util.stream.Collectors.groupingBy;
 @Service
 public class AnswerDao {
 
-    private final IParser<Answer> parser;
+    private final Parser<Answer> parser;
     private final String filename;
 
-    public AnswerDao(@Qualifier("answerParser") IParser<Answer> parser, @Value("${answer}") String filename) {
+    public AnswerDao(@Qualifier("answerParserImpl") Parser<Answer> parser, @Value("${answer}") String filename) {
         this.parser = parser;
         this.filename = filename;
     }

@@ -10,10 +10,10 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 @Service
-public class AnswerParser extends Parser implements IParser<Answer> {
+public class AnswerParserImpl extends CsvParser implements Parser<Answer> {
     private final Map<String, BiConsumer<Answer, String>> mapper = new HashMap<>();
 
-    public AnswerParser() {
+    public AnswerParserImpl() {
         this.mapper.put("question_id", (o, v) -> o.setId(Integer.valueOf(v)));
         this.mapper.put("answer", Answer::setAnswer);
         this.mapper.put("correct", (o, v) -> o.setCorrect(BooleanUtils.toBoolean(v)));
